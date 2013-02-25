@@ -1,0 +1,25 @@
+<VirtualHost *:80>
+        ServerAdmin support@kunstmaan.be
+
+        DocumentRoot /vagrant/web
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory /vagrant/web>
+            Options -Indexes MultiViews Includes FollowSymLinks
+            AllowOverride All
+            Order allow,deny
+            Allow from all
+        </Directory>
+
+        ErrorLog /var/log/apache2/error-project.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog /var/log/apache2/access-project.log combined
+        ServerSignature On
+
+</VirtualHost>
